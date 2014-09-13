@@ -1,0 +1,9 @@
+package com.example.loginandpass;
+
+import android.app.Activity;
+
+public class WelcomeBackNiqqaActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+}

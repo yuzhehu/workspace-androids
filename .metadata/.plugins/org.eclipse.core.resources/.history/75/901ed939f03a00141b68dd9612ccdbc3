@@ -1,0 +1,5 @@
+package com.example.loginandpass;
+
+public class WelcomeBackNiqqaActivity extends Activity {
+
+}

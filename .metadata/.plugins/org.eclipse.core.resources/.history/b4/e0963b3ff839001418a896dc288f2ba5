@@ -1,0 +1,84 @@
+package com.example.myfirstapp;
+
+import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class MainActivity extends ActionBarActivity {
+
+	// this is like the main method of java, creates the view.
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// restore saved state
+		super.onCreate(savedInstanceState);
+		// set content view
+		setContentView(R.layout.my_view);
+
+		// initialize UI elements
+		// this is the text i created
+		final TextView text = (TextView) findViewById(R.id.myText);
+		// this is the button i had earlier
+		final Button maButton = (Button) findViewById(R.id.my_button);
+
+		final ImageView image = (ImageView) findViewById(R.id.myImage);
+		
+		
+		
+		/*
+		 * set button listener to change text written
+		 * maButton.setOnClickListener(new Button.OnClickListener() {
+		 * 
+		 * @Override public void onClick(View v) {
+		 * 
+		 * try{ text.setText("u clicked the button"); }catch(Exception e){
+		 * System.out.println("exception"); } }
+		 * 
+		 * });
+		 */
+		
+		
+		
+		//set the button listener to open web (Uri.parse("url here"))
+		maButton.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				/*
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri
+						.parse("http://www.google.com"));
+				startActivity(browserIntent);*/
+				if(image.VISIBLE != 0)
+				image.setVisibility(0);
+				else
+					image.setVisibility(0);
+			    	
+			}
+		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}

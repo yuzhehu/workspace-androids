@@ -1,0 +1,32 @@
+package com.example.loginandpass;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class WelcomeBackNiqqaActivity extends Activity {
+
+	
+	public static final String ACCESS_NAME = "5rp2e-eph3k-br3lg-kmgde-fn8py";
+	private String info;
+	private Button boomNiqqa;
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_niqqa);
+		info = getIntent().getStringExtra(ACCESS_NAME);
+		final TextView v = (TextView) findViewById(R.id.textView);
+		v.setText(v.getText() + " " + info);
+		boomNiqqa = (Button) findViewById(R.id.button);
+		boomNiqqa.setOnClickListener( new View.OnClickListener(){
+			@Override 
+			public void onClick(View v)
+			{
+				
+			}
+		});
+	}
+}

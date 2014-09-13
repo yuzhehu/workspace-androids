@@ -1,0 +1,68 @@
+package com.example.loginandpass;
+
+import android.app.Activity;
+import android.content.*;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.*;
+
+public class WelcomeBackNiqqaActivity extends Activity {
+
+	//creating unique access names to extra the exact information needed
+	public static final String ACCESS_NAME = "5rp2e-eph3k-br3lg-kmgde-fn8py";
+	public static final String BOOMED_ACCESS_NAME = "5RP2E-EPH3K-BR3LG-KMGTE-FN8PY";
+	//private vars to store information
+	private String info;
+	private Button boomNiqqa;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		//default stuff here
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_niqqa);
+		//saving the data passed on from the MainActivity class
+		info = getIntent().getStringExtra(ACCESS_NAME);
+		//creating a textView for later use
+		final TextView v = (TextView) findViewById(R.id.textView);
+		v.setText(v.getText() + " " + info);
+		
+		
+		//CREATING A COMPLETELY NEW IMAGEVIEW USING JAVA CLASS
+		final ImageView image = new ImageView(this);
+	
+		
+		boomNiqqa = (Button) findViewById(R.id.boomButton);
+		
+		boomNiqqa.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				/****************************************************************/
+				//creating the parameters for adding the image to the layout
+				FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+						FrameLayout.LayoutParams.MATCH_PARENT,
+						FrameLayout.LayoutParams.MATCH_PARENT);
+				//setting the scale type of the image
+				image.setScaleType(ImageView.ScaleType.MATRIX);
+				//setting the source of the image
+				image.setImageResource(R.drawable.boom1);
+				/*
+				 * creating the layout from the default layout. This took me a while to figure out, but I had to go to the 
+				 * activity_niqqa.xml files and manually adding a reference id for the default layout(right click and edit id).
+				 */
+				final RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout1);
+				//adding the view to the layout
+				layout.addView(image, 0, params);
+				/***************************************************************/
+			}
+		});
+	}
+	
+	
+	private void setBombAnswer(boolean clickedBoom)
+	{
+		Intent data = new Intent();
+		data.putExtra(BOOMED_ACCESS_NAME, clickedBoom);
+		setResult(RESULT_OK, data);
+		
+	}
+}
